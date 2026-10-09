@@ -56,6 +56,7 @@ import com.sk.wifi_internetspeedtester.domain.model.NetworkType
 import com.sk.wifi_internetspeedtester.domain.model.RatingLevel
 import com.sk.wifi_internetspeedtester.domain.model.SmartExplanation
 import com.sk.wifi_internetspeedtester.domain.model.SpeedTestResult
+import com.sk.wifi_internetspeedtester.ui.ads.BannerAdView
 import com.sk.wifi_internetspeedtester.ui.theme.RatingExcellent
 import com.sk.wifi_internetspeedtester.ui.theme.RatingFair
 import com.sk.wifi_internetspeedtester.ui.theme.RatingGood
@@ -279,6 +280,11 @@ fun ResultScreen(
                 )
             }
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // AdMob Test Banner Ad
+        BannerAdView()
 
         Spacer(modifier = Modifier.height(24.dp))
     }

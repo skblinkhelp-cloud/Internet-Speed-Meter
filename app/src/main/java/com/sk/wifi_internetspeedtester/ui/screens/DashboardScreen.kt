@@ -65,6 +65,7 @@ import java.util.Locale
 
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.IconButton
+import com.sk.wifi_internetspeedtester.ui.ads.BannerAdView
 
 @Composable
 fun DashboardScreen(
@@ -253,6 +254,11 @@ fun DashboardScreen(
                 onViewDetails = onViewLastResult
             )
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // AdMob Test Banner Ad
+        BannerAdView()
     }
 }
 

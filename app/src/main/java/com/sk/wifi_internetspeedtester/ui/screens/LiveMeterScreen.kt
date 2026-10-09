@@ -47,6 +47,7 @@ import androidx.compose.ui.unit.sp
 import com.sk.wifi_internetspeedtester.domain.model.NetworkStatus
 import com.sk.wifi_internetspeedtester.domain.model.NetworkType
 import com.sk.wifi_internetspeedtester.service.LiveTrafficData
+import com.sk.wifi_internetspeedtester.ui.ads.BannerAdView
 
 @Composable
 fun LiveMeterScreen(
@@ -300,6 +301,11 @@ fun LiveMeterScreen(
                 )
             }
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // AdMob Test Banner Ad
+        BannerAdView()
 
         Spacer(modifier = Modifier.height(24.dp))
     }

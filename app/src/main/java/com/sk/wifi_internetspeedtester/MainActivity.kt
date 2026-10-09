@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.google.android.gms.ads.MobileAds
 import com.sk.wifi_internetspeedtester.domain.interpreter.SmartResultInterpreter
 import com.sk.wifi_internetspeedtester.domain.model.NetworkType
 import com.sk.wifi_internetspeedtester.domain.model.SmartExplanation
@@ -40,6 +41,7 @@ import com.sk.wifi_internetspeedtester.ui.MainTab
 import com.sk.wifi_internetspeedtester.ui.MainUiState
 import com.sk.wifi_internetspeedtester.ui.MainViewModel
 import com.sk.wifi_internetspeedtester.ui.Screen
+import com.sk.wifi_internetspeedtester.ui.ads.InterstitialAdManager
 import com.sk.wifi_internetspeedtester.ui.screens.DashboardScreen
 import com.sk.wifi_internetspeedtester.ui.screens.DataUsageScreen
 import com.sk.wifi_internetspeedtester.ui.screens.LiveMeterScreen
@@ -70,6 +72,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        // Initialize Google Mobile Ads SDK (AdMob)
+        MobileAds.initialize(this) {}
+        InterstitialAdManager.loadAd(this)
 
         setContent {
             WiFiInternetSpeedTesterTheme {
@@ -108,7 +114,11 @@ class MainActivity : ComponentActivity() {
                         uiState = uiState,
                         onStartTest = { viewModel.startSpeedTest() },
                         onCancelTest = { viewModel.cancelTest() },
-                        onBackToDashboard = { viewModel.navigateToDashboard() },
+                        onBackToDashboard = {
+                            InterstitialAdManager.showAd(this@MainActivity) {
+                                viewModel.navigateToDashboard()
+                            }
+                        },
                         onOpenSettings = { viewModel.openSettings() },
                         onCloseSettings = { viewModel.closeSettings() },
                         onToggleStartOnBoot = { viewModel.toggleStartOnBoot(it) },
