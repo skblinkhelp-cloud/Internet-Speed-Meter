@@ -11,7 +11,7 @@ import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import com.sk.wifi_internetspeedtester.MainActivity
-import com.sk.wifi_internetspeedtester.R
+import com.sk.internetspeedmeter.R
 import com.sk.wifi_internetspeedtester.data.repository.DataUsageRepository
 import com.sk.wifi_internetspeedtester.data.repository.NetworkRepository
 import com.sk.wifi_internetspeedtester.domain.model.NetworkType

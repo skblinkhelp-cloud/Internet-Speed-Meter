@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.sk.wifi_internetspeedtester", appContext.packageName)
+        assertEquals("com.sk.internetspeedmeter", appContext.packageName)
     }
 }

@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.sk.wifi_internetspeedtester"
+    namespace = "com.sk.internetspeedmeter"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.sk.wifi_internetspeedtester"
+        applicationId = "com.sk.internetspeedmeter"
         minSdk = 26
         targetSdk = 37
         versionCode = 1
